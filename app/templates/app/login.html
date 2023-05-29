@@ -1,0 +1,27 @@
+{% extends 'app/main.html' %}
+{% block content %}
+
+    <!-- criando formulario de login-->
+    <div class="login-container">
+        <h2 class="tituloform">Faça o Login no Xpoints</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {% for error in login_form.non_field_errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+            {% for field in login_form %}
+                <label style="color: white;" class="mt-1" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <div class="form-group">
+                    {{ field }}
+                </div>
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div style="color: #c74b4b">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn mt-3">Entar</button>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'app/main.html' %}
+
+{% block content %}
+    <img src="{{ user.profile_image.url }}" alt="Profile Photo" style="max-width: 50px; max-height: 50px;">
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#edit-user-data">Edit User Data</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#rewards">Rewards</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="edit-user-data" class="tab-pane fade show active">
+                {% include 'app/edit_user.html' %}
+            </div>
+            <div id="rewards" class="tab-pane fade">
+                {% include 'app/rewards.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

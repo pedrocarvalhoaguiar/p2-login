@@ -1,0 +1,98 @@
+{% extends 'app/main.html' %}
+
+{% block content %}
+
+    <form style="color: white;" name="form-usuario" id="formUsers" method="post">
+        <h2> Crie seu Usuário</h2>
+        <div class="form-group" style="max-width: 250px; max-height: 80vh;">
+
+            {% csrf_token %}
+            {% for error in registration_form.non_field_errors %}
+                <div class="required">{{ error }}</div>
+            {% endfor %}
+            {% for field in registration_form %}
+                <label style="color: white;" class="mt-1" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div style="color: #c74b4b">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            <div class="mt-2"><input type="checkbox" id="displayPassword"> Mostrar Senha</div>
+
+            <div style="color: rgb(167, 12, 12);" id="password-strength"></div>
+
+            <input class="btn btn-primary mt-4" type="submit" id="btnCadastro" value="Criar Usuário">
+        </div>
+    </form>
+
+
+    <script>
+
+        function validatePassword() {
+            var password = document.getElementById('id_password1').value;
+            var confirmPassword = document.getElementById('id_password2').value;
+            var strengthText = document.getElementById('password-strength');
+
+            if (password.length < 8) {
+                strengthText.innerText = "Password should be at least 8 characters long.";
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                strengthText.innerText = "Passwords do not match.";
+                return false;
+            }
+
+            var strongRegex = new RegExp(
+                "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+            );
+            if (!strongRegex.test(password)) {
+                strengthText.innerText =
+                    "Password should contain at least one lowercase letter, one uppercase letter, one digit, and one special character.";
+                return false;
+            }
+
+            strengthText.innerText = "";
+            return true;
+        }
+
+        var passwordField = document.getElementById('id_password1');
+        var confirmPasswordField = document.getElementById('id_password2');
+        var strengthText = document.getElementById('password-strength');
+
+        passwordField.addEventListener('input', function () {
+            if (passwordField.value.length === 0) {
+                strengthText.innerText = "";
+            } else {
+                validatePassword();
+            }
+        });
+
+        confirmPasswordField.addEventListener('input', validatePassword);
+
+        document.getElementById('formUsers').addEventListener('submit', function (event) {
+            if (!validatePassword()) {
+                event.preventDefault();
+            }
+        });
+
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById('id_password1');
+            var confirmPasswordField = document.getElementById('id_password2');
+            var displayPasswordCheckbox = document.getElementById('displayPassword');
+
+            if (displayPasswordCheckbox.checked) {
+                passwordField.type = 'text';
+                confirmPasswordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+                confirmPasswordField.type = 'password';
+            }
+        }
+
+        document.getElementById('displayPassword').addEventListener('change', togglePasswordVisibility);
+    </script>
+
+{% endblock %}

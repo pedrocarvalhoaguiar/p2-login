@@ -1,0 +1,22 @@
+{% extends 'app/main.html' %}
+
+{% block content %}
+    <div class="mb-4">
+        {% if not user.is_authenticated %}
+            <div class="centered-btn">
+                <a href="/create/" class="btn">Crie sua conta</a>
+                <a href="/login/" class="btn">Faça Login</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="rewards">
+        {% for reward in rewards %}
+            <div class="reward">
+                <h2>{{ reward.name }}</h2>
+                <p>{{ reward.description }}</p>
+                <p>Pontos necessários: {{ reward.points_needed }}</p>
+                <a href="#" class="btn">Trocar</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

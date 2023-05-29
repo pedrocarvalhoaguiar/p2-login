@@ -1,0 +1,22 @@
+<div class="tab-content-inner">
+    <form style="color: white;" name="form-usuario" id="formUsers" enctype="multipart/form-data" method="post">
+    <h1>Edit User Data</h1>
+        <div class="form-group"  style="max-width: 250px; max-height: 80vh;">
+
+            {% csrf_token %}
+            {% for error in registration_form.non_field_errors %}
+                <div class="required">{{ error }}</div>
+            {% endfor %}
+            {% for field in user_form %}
+                <label style="color: white;" class="mt-1" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div style="color: #c74b4b">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            <input class="btn btn-primary mt-4" type="submit" id="btnCadastro" value="Alterar Usuário">
+        </div>
+    </form>
+</div>

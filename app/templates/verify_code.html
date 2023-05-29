@@ -1,0 +1,17 @@
+{% extends 'app/main.html' %}
+
+{% block content %}
+   <form style="color: white;" name="form-usuario" id="formUsers" method="post">
+        <h2> Verificação </h2>
+        <div class="form-group" style="max-width: 250px; max-height: 80vh;">
+            {% csrf_token %}
+            {#            {% for error in registration_form.non_field_errors %}#}
+{#                <div class="required">{{ error }}</div>#}
+{#            {% endfor %}#}
+            <div class="mt-2"><input type="text" id="verification_code" name="verification_code"> Insira o código </div>
+
+
+            <input class="btn btn-primary mt-4" type="submit" id="btnCadastro" value="Entre">
+        </div>
+    </form>
+{% endblock %}

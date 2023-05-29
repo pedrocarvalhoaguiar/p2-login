@@ -1,0 +1,185 @@
+/* trabalhando o corpo do html */
+body {
+    background-color: #131213;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+header {
+    background-color: #262626;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+/* configurando e dando uma mexida nos  botões */
+.btn {
+    background-color: #333;
+    color: #fffdfd;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+.centered-btn {
+    text-align: center;
+}
+
+/* mudando a cor e configurando o formulario de login */
+.login-container {
+    background-color: #e4e8e9;
+    border: 1px solid #05028e;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* trabalhando o formulario de login */
+.form-group {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* configurando os inputs para  gerar o alerta */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* configurando o botão de login */
+.login-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+
+}
+
+/*arrumando o formulario de usuarios*/
+
+.formUsers {
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+}
+
+/*definindo o a cor da letra do crie seu usuario*/
+h2 {
+    color: #ccc;
+}
+
+.tituloform {
+
+    color: #0b0b0b;
+
+}
+
+/* Rodape */
+footer {
+    background-color: #262626;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+.carousel-item img {
+    width: 30%;
+    height: 50px;
+
+}
+
+#carouselFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.rewards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.reward {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+}
+
+.reward h2 {
+    margin-top: 0;
+}
+
+.reward p {
+    margin-bottom: 0;
+}
+
+.btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+.centered-btn {
+    text-align: center;
+}
