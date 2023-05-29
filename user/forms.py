@@ -30,8 +30,8 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 class CustomUserLoginForm(forms.Form):
-    password = forms.CharField(widget=forms.PasswordInput, required=True)
     email = forms.EmailField(widget=forms.EmailInput, required=True)
+    password = forms.CharField(widget=forms.PasswordInput, required=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -44,6 +44,10 @@ class UserFormChange(forms.ModelForm):
 
     birthday = forms.DateTimeInput()
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['points'].widget.attrs.update({'readonly': 'readonly'})
+
     class Meta:
         model = CustomUser
-        fields = ('name', 'profile_image', 'birthday')
+        fields = ('name', 'profile_image', 'birthday', 'points')

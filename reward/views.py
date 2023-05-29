@@ -9,7 +9,7 @@ from reward.models import Reward, ReceivedReward
 def mec_reward(request, pk):
     reward = Reward.objects.filter(id=pk).first()
     user = request.user
-    if reward.points_needed >= user.points:
+    if reward.points_needed <= user.points and not ReceivedReward.objects.filter(reward_id=reward.id, retrieved_by_id=user.id):
         ReceivedReward.objects.create(reward=reward, retrieved_by=request.user)
         user.points -= reward.points_needed
         user.save()

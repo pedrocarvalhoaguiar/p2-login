@@ -10,7 +10,7 @@
                 <div>{{ error }}</div>
             {% endfor %}
             {% for field in login_form %}
-                <label style="color: white;" class="mt-1" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <label class="mt-1" for="{{ field.id_for_label }}">{{ field.label }}</label>
                 <div class="form-group">
                     {{ field }}
                 </div>

@@ -15,7 +15,7 @@
                 <h2>{{ reward.name }}</h2>
                 <p>{{ reward.description }}</p>
                 <p>Pontos necessários: {{ reward.points_needed }}</p>
-                <a href="#" class="btn">Trocar</a>
+                <a href="/reward/{{ reward.id }}" class="btn">Trocar</a>
             </div>
         {% endfor %}
     </div>
