@@ -1,0 +1,24 @@
+{% extends 'app/main.html' %}
+{% block content %}
+
+<!-- criando formulario de login-->
+<div class="login-container">
+    <h2 class="tituloform">Faça o Login no Xpoints</h2>
+    <form>
+      <div class="form-group">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="for-group">
+        <label for="remember">Codigo de autenticação</label>
+        <input type="text" id="remember" name="remember">
+      </div>
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+  </div>
+
+{% endblock %}
